@@ -1,4 +1,4 @@
-README
+==README
 
 VERSION:
 Rails version: 4.2.7.1
@@ -6,7 +6,7 @@ Rails version: 4.2.7.1
 TESTING:
 Test suite executed via terminal command: "bundle exec rspec"
 
-LIBRARIES/FRAMEWORKS
+LIBRARIES/FRAMEWORKS:
 Pagination library: 'will_paginate', '3.0.7'
 HTML, CSS, and JavaScript framework: 'bootstrap-sass', '~> 3.3.6'
 
