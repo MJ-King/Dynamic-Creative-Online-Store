@@ -20,13 +20,18 @@ class CategoriesController < ApplicationController
   end
 
   def import
-    Category.import(params[:file])
-    redirect_to root_url, notice: "Data imported!"
+    begin
+      Category.import(params[:file])
+      notice = "Successfully imported!"
+    rescue
+      notice = "There was an error whilst importing!"
+    ensure
+      redirect_to import_path, notice: notice
+    end
   end
   
   private
-  def category_params
-    params.require(:category).permit(:category)
-  end
-  
+    def category_params
+      params.require(:category).permit(:category)
+    end
 end

@@ -1,10 +1,18 @@
-<h1>Showing selected product</h1>
+<div class='row'>
+    <div class='col-xs-8 col-xs-offset-2'>
+      <div class='well well-lg'>
+        <div class='category-title'>
+          <p>
+            <%= @product.name %>
+          </p>
+          <p>
+            <span class="label">Price:</span><span class="label-price"><%= number_to_currency(@product.price) %></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<div align="center">
+  [ <%= link_to 'Back to ' + @category.category , category_path(@category) %> ]
+</div>
 
-<p>
-  Name: <%= @product.name %>
-</p>
-<p>
-  Price: $<%= @product.price %>
-</p>
-
-<%= link_to 'Back to ' + @category.category , category_path(@category) %>

@@ -1,2 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.category-title{
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.label-price {
+  color: red;
+}
+
+.label{
+  font-size: 0.8em;
+  color: black;
+}

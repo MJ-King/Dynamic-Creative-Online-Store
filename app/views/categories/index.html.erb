@@ -1,13 +1,12 @@
-<h1>Listing all categories</h1>
-
-<table>
-  <tr>
-    <th>Category</th>
-  </tr>
-  <% @categories.sort_by{ |m| m.category }.each do |category|%>
-    <tr>
-      <td><%= category.category %></td>
-      <td><%= link_to 'Show products', category_path(category) %></td>
-    </tr>
-  <% end %>
-</table>
+<h1 align="center">Select a Category:</h1>
+<% @categories.sort_by{ |m| m.category }.each do |category|%>
+  <div class='row'>
+    <div class='col-xs-8 col-xs-offset-2'>
+      <div class='well well-lg'>
+        <div class='category-title'>
+          <%= link_to category.category, category_path(category) %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

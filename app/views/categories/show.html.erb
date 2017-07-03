@@ -1,25 +1,26 @@
-<h1>Showing selected products within category</h1>
+<h1 align="center"><%= @category.category %> Products:</h1>
 
-<div class="center">
+<div align="center">
   <%= will_paginate @category_products %>
 </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-  </tr>
-  <% @category_products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
-      <td>$<%= product.price %></td>
-      <td><%= link_to 'Show', product_path(product) %></td>
-    </tr>
-  <% end %>
-</table>
+<% @category_products.each do |product| %>
+  <div class='row'>
+    <div class='col-xs-8 col-xs-offset-2'>
+      <div class='well well-lg'>
+        <div class='category-title'>
+          <%= link_to product.name, product_path(product) %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<% end %>
 
-<div class="center">
+
+<div align="center">
   <%= will_paginate @category_products %>
 </div>
-
-<%= link_to 'Back to Categories', root_path %>
+<div align="center">
+  [ <%= link_to 'Back to Categories', root_path %> ]
+</div>
