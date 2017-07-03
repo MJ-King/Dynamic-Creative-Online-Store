@@ -1,0 +1,13 @@
+<!--View for providing import CSV interface-->
+<div class='row'>
+  <div class='col-xs-8 col-xs-offset-2'>
+    <div class='well well-lg'>
+      <h3>Import Data from CSV:</h3>
+        <%= form_tag import_categories_path, multipart: true do %>
+          <%= submit_tag "Trigger Import" %>
+        <% end %>
+        <br>
+        <%= flash[:notice] %>
+    </div>
+  </div>
+</div>

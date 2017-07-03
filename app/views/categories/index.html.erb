@@ -1,6 +1,8 @@
+
+
 <!--View for displaying all categories (this is the root path)-->
 <h1 align="center">Select a Category:</h1>
-<% @categories.sort_by{ |m| m.category }.each do |category|%>
+<% @categories.each do |category|%>
   <div class='row'>
     <div class='col-xs-8 col-xs-offset-2'>
       <div class='well well-lg'>

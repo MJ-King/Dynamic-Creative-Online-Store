@@ -8,8 +8,8 @@ class Category < ActiveRecord::Base
   validates :category, presence: true
   
   #method to idempotently import products and categorys from CSV
-  def self.import(file)
-    CSV.foreach(file.path, headers:true) do |row|
+  def self.import
+    CSV.foreach(Rails.root.join('tmp', 'products.csv')) do |row|
       @product_IDs = Product.pluck('product_id')
       @categories = Category.pluck('category')
       if @categories.exclude? row[1]

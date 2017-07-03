@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   
   #retrieves all stored categories from database for index view
   def index
-    @categories = Category.all
+    @categories = Category.all.order("category")
   end
 
   #creates new category, saves it to the db (used when importing from CSV)
@@ -11,21 +11,21 @@ class CategoriesController < ApplicationController
     @category.save
   end
   
-  #retrieves all products from a given category for the category show view
+  #retrieves all products in alphabetical order from a given category for the category show view
   def show
     @category = Category.find(params[:id])
-    @category_products = @category.products.paginate(page: params[:page], per_page:5)
+    @category_products = @category.products.paginate(page: params[:page], per_page:5).order("name")
   end
 
   #handles importing of CSV and displays error notice if error occurs.
   def import
     begin
-      Category.import(params[:file])
-      notice = "Successfully imported!"
+      Category.import
+      notice = "Import Complete"
     rescue
       notice = "There was an error whilst importing!"
     ensure
-      redirect_to import_path, notice: notice
+      redirect_to start_path, notice: notice
     end
   end
   
