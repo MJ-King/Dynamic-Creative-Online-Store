@@ -1,12 +1,17 @@
 class Category < ActiveRecord::Base
   require 'csv'
+  
+  #1 category has many products
   has_many :products
+  
+  #category must be created with the category field entered.
   validates :category, presence: true
   
+  #method to idempotently import products and categorys from CSV
   def self.import(file)
-    @product_IDs = Product.pluck('product_id')
-    @categories = Category.pluck('category')
     CSV.foreach(file.path, headers:true) do |row|
+      @product_IDs = Product.pluck('product_id')
+      @categories = Category.pluck('category')
       if @categories.exclude? row[1]
         category = Category.create category: row[1]
       end

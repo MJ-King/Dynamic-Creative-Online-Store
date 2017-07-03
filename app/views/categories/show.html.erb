@@ -1,9 +1,9 @@
-<h1 align="center"><%= @category.category %> Products:</h1>
+<!--View for displaying all products within a category-->
 
+<h1 align="center"><%= @category.category %> Products:</h1>
 <div align="center">
   <%= will_paginate @category_products %>
 </div>
-
 <% @category_products.each do |product| %>
   <div class='row'>
     <div class='col-xs-8 col-xs-offset-2'>
@@ -16,8 +16,6 @@
     </div>
   </div>
 <% end %>
-
-
 <div align="center">
   <%= will_paginate @category_products %>
 </div>
