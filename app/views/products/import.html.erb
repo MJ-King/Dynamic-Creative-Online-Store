@@ -1,0 +1,8 @@
+<h1>Import data:</h1>
+  <%= form_tag import_categories_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+
+<!–– Need to add CSV import! ––>
+<%= flash[:notice] %>

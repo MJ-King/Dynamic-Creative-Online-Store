@@ -1,0 +1,13 @@
+<h1>Listing all categories</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+  </tr>
+  <% @categories.sort_by{ |m| m.category }.each do |category|%>
+    <tr>
+      <td><%= category.category %></td>
+      <td><%= link_to 'Show products', category_path(category) %></td>
+    </tr>
+  <% end %>
+</table>

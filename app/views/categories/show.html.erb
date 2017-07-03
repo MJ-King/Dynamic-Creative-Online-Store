@@ -1,0 +1,25 @@
+<h1>Showing selected products within category</h1>
+
+<div class="center">
+  <%= will_paginate @category_products %>
+</div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  <% @category_products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td>$<%= product.price %></td>
+      <td><%= link_to 'Show', product_path(product) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="center">
+  <%= will_paginate @category_products %>
+</div>
+
+<%= link_to 'Back to Categories', root_path %>

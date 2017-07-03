@@ -1,0 +1,10 @@
+<h1>Showing selected product</h1>
+
+<p>
+  Name: <%= @product.name %>
+</p>
+<p>
+  Price: $<%= @product.price %>
+</p>
+
+<%= link_to 'Back to ' + @category.category , category_path(@category) %>
