@@ -6,13 +6,12 @@ class ProductsController < ApplicationController
     @product.save
   end
   
-  #retrieves product for listing in the product 'show' view
+  #retrieves product for products#show view
   def show
     @product = Product.find(params[:id])
-    
+
     #retreives category for user to return to category page
-    cat_id = @product.category_id
-    @category = Category.find_by id: cat_id
+    @category = Category.find_by id: @product.category_id
   end
 
   private
