@@ -15,7 +15,7 @@ class Category < ActiveRecord::Base
       
       #check if category exists, creates new category if not.
       if @categories.exclude? row[1]
-        category = Category.create category: row[1]
+        Category.create category: row[1]
       end
       
       #check if product exists, creates new product if not.
